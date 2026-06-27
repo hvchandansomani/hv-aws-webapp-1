@@ -1,6 +1,11 @@
+# Github Repo  [https://github.com/hvchandansomani/hv-aws-webapp-1](https://github.com/hvchandansomani/hv-aws-webapp-1)
+
+
 ## Frontend : http://ec2-34-229-66-210.compute-1.amazonaws.com/
 
 ![alt text](image.png)
+
+[Frontend - readme.pdf](aws-assignment/frontend/readme.pdf)
 
 ## Backend : 
 
@@ -24,7 +29,7 @@ myRSA-pem-NVirginia
 - Setup VSCode Remote Connection 
 
 
-
+[aws-assignment/backend/readme.pdf](aws-assignment/backend/readme.pdf)
 
 
 ## Database : 
