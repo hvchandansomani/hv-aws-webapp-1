@@ -3,26 +3,40 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                echo 'Checking out code from Github...'
+                echo 'Checking out code...'
                 checkout scm
             }
         }
         stage('Install Dependencies') {
             steps {
-                echo " Installing dependencies..."
-                sh 'python3 -m pip install -r requirements.txt'
+                echo "Creating venv and Installing dependencies..."
+                // Create a virtual environment named 'venv' and install requirements inside it
+                sh '''
+                    python3 -m venv venv
+                    . venv/bin/activate
+                    python3 -m pip install --upgrade pip
+                    python3 -m pip install -r requirements.txt
+                '''
             }
         }
         stage('Run Tests') {
             steps {
                 echo "Running tests..."    
-                sh 'python3 -m pytest'
+                // Activate the venv before running pytest
+                sh '''
+                    . venv/bin/activate
+                    python3 -m pytest
+                '''
             }
         }
         stage('Build') {
             steps {
                 echo "Building the application..."
-                sh 'python3 app.py'
+                // Activate the venv before running the app
+                sh '''
+                    . venv/bin/activate
+                    python3 app.py
+                '''
             }
         }
     }
