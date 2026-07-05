@@ -26,6 +26,7 @@ pipeline {
                 // Activate the venv before running pytest
                 sh '''
                     . venv/bin/activate
+                    cd jenkinsdemo
                     python3 -m pytest
                 '''
             }
@@ -36,6 +37,7 @@ pipeline {
                 // Activate the venv before running the app
                 sh '''
                     . venv/bin/activate
+                    cd jenkinsdemo
                     python3 app.py
                 '''
             }
